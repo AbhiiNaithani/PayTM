@@ -54,7 +54,7 @@ router.post('/signup', async (req,res) => {
         userId
     },JWT_SECRET);
 
-    res.json({
+    res.status(200).json({
         message: 'User created successfully',
         token: 'Bearer ' + token,
     })
@@ -95,7 +95,7 @@ router.post('/signin', async (req,res) => {
         userId: user._id
     },JWT_SECRET);
 
-    res.json({
+    res.status(200).json({
         message: 'Logged in successfully',
         token: 'Bearer ' + token,
     })
