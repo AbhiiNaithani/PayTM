@@ -33,16 +33,16 @@ export const SignUp = () => {
             <SubHeading label = {'Enter your information to create an account.'}/>
             <InputBox onChange={(e) => {
                 setFirstName(e.target.value);
-            }} value={firstName} label="First Name" placeholder={'John'}/>
+            }} type={'text'} value={firstName} label="First Name" placeholder={'John'}/>
             <InputBox onChange={(e) => {
                 setLastName(e.target.value);
-            }} value={lastName} label="Last Name" placeholder={'Doe'}/>
+            }} type={'text'} value={lastName} label="Last Name" placeholder={'Doe'}/>
             <InputBox onChange={(e) => {
                 setUsername(e.target.value);
-            }} value={username} label="Email" placeholder={'abhi@gmail.com'}/>
+            }} type={'text'} value={username} label="Email" placeholder={'abhi@gmail.com'}/>
             <InputBox onChange={(e) => {
                 setPassword(e.target.value);
-            }} value={password} label="Password" placeholder={'123456'}/>
+            }} type={'text'} value={password} label="Password" placeholder={'123456'}/>
             <div className="pt-4"> 
                 <Button label='Sign Up' onClick={SignUpHandler}/>
             </div>

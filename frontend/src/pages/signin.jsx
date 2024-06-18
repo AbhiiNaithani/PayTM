@@ -30,10 +30,10 @@ export const SignIn = () => {
         <SubHeading label = {'Enter your credentials to enter in your account.'}/>
         <InputBox onChange={(e) => {
             setUsername(e.target.value);
-        }} value={username} label="Email" placeholder={'abhii@gmail.com'}/>
+        }} type={'text'} value={username} label="Email" placeholder={'abhii@gmail.com'}/>
         <InputBox onChange={(e) => {
             setPassword(e.target.value);
-        }} value={password} label="Password" placeholder={'123456'}/>
+        }} type={'text'} value={password} label="Password" placeholder={'123456'}/>
         <div className="pt-4"> 
             <Button label='Sign In' onClick = {SignInHandler}/>
         </div>

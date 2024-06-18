@@ -136,8 +136,9 @@ router.put('/update',authMiddleware, async (req,res) => {
 
 //get users
 
-router.get('/bulk', async (req, res) => {
+router.get('/bulk',authMiddleware, async (req, res) => {
     const filter = req.query.filter || "";
+    
 
     const users = await User.find({
         $or: [
@@ -145,14 +146,29 @@ router.get('/bulk', async (req, res) => {
             {lastName : {'$regex': filter}},
         ]
     })
-
+    const filteredUsers = users.filter((user) => user._id != req.userId);
     res.status(200).json({
-        user: users.map(user => ({
+        user: filteredUsers.map(user => ({
             username : user.username,
             firstName : user.firstName,
             lastName : user.lastName,
             _id: user._id
         }))
+    })
+})
+
+router.get('/details',authMiddleware, async (req, res) => {
+
+    const user = await User.findOne({
+        _id : req.userId
+    })
+    res.status(200).json({
+        user: {
+            username : user.username,
+            firstName : user.firstName,
+            lastName : user.lastName,
+            _id: user._id
+        }
     })
 })
 
